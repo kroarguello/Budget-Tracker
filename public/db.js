@@ -28,6 +28,8 @@ function saveRecord(record) {
   // add record to your store with add method.
  
  const transaction = db.transaction(["pending"], "readwrite");
+ const store= transaction.objectStore("pending");
+ store.add(record);
 
 
 }
@@ -52,6 +54,10 @@ function checkDatabase() {
           // if successful, open a transaction on your pending db
           // access your pending object store
           // clear all items in your store
+        const transaction = db.transaction(["pending"], "readwrite");
+        const store = transaction.objectStore("pending");
+        store.clear();
+
         });
     }
   };
