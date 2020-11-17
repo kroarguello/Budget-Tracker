@@ -1,6 +1,6 @@
 let db;
 // create a new db request for a "budget" database.
-const request = indexedDB.open("budget", 1);
+const request = window.indexedDB.open("budget", 1);
 
 request.onupgradeneeded = function (event) {
   // create object store called "pending" and set autoIncrement to true
@@ -39,7 +39,12 @@ function checkDatabase() {
   // access your pending object store
   // get all records from store and set to a variable
 
-  getAll.onsuccess = function () {
+const transaction = db.transaction(["pending"], "readwrite");
+const store = transaction.objectStore("pending");
+const getAll = store.getAll();
+
+
+ getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
       fetch('/api/transaction/bulk', {
         method: 'POST',
