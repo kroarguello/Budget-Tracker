@@ -11,3 +11,6 @@ Offline Functionality:
   * Enter expenses offline
 
 ![Alt text](pic1.png?raw=true)   
+![Alt text](pic2.png?raw=true) 
+![Alt text](pic3.png?raw=true) 
+![Alt text](pic4.png?raw=true) 
